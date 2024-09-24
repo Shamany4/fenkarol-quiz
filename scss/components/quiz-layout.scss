@@ -1,0 +1,63 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.quiz-layout {
+  .quiz-layout__wrapper {
+  }
+
+  .quiz-breadcrumbs {
+    margin: 14px 0 20px 0;
+
+    span {
+      color: $COLOR_LIGHT_GRAY;
+      font-family: $ffFuturaPT;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: $book;
+      line-height: normal;
+    }
+  }
+
+  .quiz-picture {
+    margin-bottom: 10px;
+
+    @include media(sm) {
+      max-width: 100% !important;
+    }
+  }
+
+  .quiz-layout__hidden {
+    width: 100%;
+    margin-top: 57px;
+
+    display: none;
+    justify-content: center;
+  }
+
+  .hint {
+    padding: 8px 24px;
+    width: 600px;
+    height: 41px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 8px;
+    border: 1px solid $COLOR_TURQUOISE;
+    background: $COLOR_WHITE;
+
+    span {
+      color: $COLOR_TURQUOISE;
+      font-family: $ffFuturaPT;
+      font-size: 17px;
+      font-style: normal;
+      font-weight: $medium;
+      line-height: 17px;
+    }
+
+    @include media(md) {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.input-control {
+  width: 600px;
+  max-width: 600px;
+  min-height: 41px;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid #E3D4DC;
+  background: $COLOR_WHITE;
+
+  input, label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+
+  }
+
+  input {
+    opacity: 0;
+    z-index: 2;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:checked + label {
+      border: 1px solid $COLOR_TURQUOISE;
+
+      color: $COLOR_TURQUOISE;
+      font-weight: $medium;
+    }
+
+    &[data-right-answer="false"]:checked + label {
+      border: 1px solid $COLOR_LIGHTER_RED;
+
+      color: $COLOR_LIGHTER_RED;
+      font-weight: $medium;
+    }
+
+    &.check-result {
+      &[data-correct-answer="true"] + label {
+        border: 1px solid $COLOR_TURQUOISE;
+
+        color: $COLOR_TURQUOISE;
+        font-weight: $medium;
+      }
+
+      &[data-correct-answer="false"] + label {
+        border: 1px solid $COLOR_LIGHTER_RED;
+
+        color: $COLOR_LIGHTER_RED;
+        font-weight: $medium;
+      }
+    }
+  }
+
+  label {
+    padding: 8px 24px;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: $COLOR_GRAY;
+    font-family: $ffFuturaPT;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: $book;
+    line-height: normal;
+  }
+
+  @include media(md) {
+    width: 100%;
+    height: auto;
+
+    label {
+      position: relative;
+    }
+  }
+}

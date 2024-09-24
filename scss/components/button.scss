@@ -1,0 +1,42 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.btn {
+  padding: 8px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+
+  span {
+    color: $COLOR_WHITE;
+    font-family: $ffFuturaPT;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: $medium;
+    line-height: normal;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.btn--fill {
+    background: $COLOR_TURQUOISE;
+
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+
+    &:hover {
+      cursor: initial;
+    }
+  }
+}

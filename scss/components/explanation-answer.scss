@@ -1,0 +1,38 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.explanation-answer {
+  display: none;
+  width: 100%;
+  text-align: left;
+
+  .explanation-answer__wrapper {
+    margin: 42px 0 30px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .explanation-answer__result {
+    font-family: $ffFuturaPT;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: $medium;
+    line-height: 29px;
+  }
+
+  .explanation-answer__right-answer {
+    margin-top: 8px;
+  }
+
+  .explanation-answer__instruction {
+    margin-top: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &.visible {
+    display: block;
+  }
+}

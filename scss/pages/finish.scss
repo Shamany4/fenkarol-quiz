@@ -1,0 +1,11 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.finish-preview {
+  margin-top: 70px;
+
+  @include media(sm) {
+    margin-top: 30px;
+  }
+}
+

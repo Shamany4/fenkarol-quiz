@@ -1,0 +1,27 @@
+// Temp styles
+html {
+  height: auto !important;
+}
+
+#fenkarol-quiz {
+  margin-bottom: 50px;
+}
+
+
+#fenkarol-quiz {
+  @import "utils/fonts";
+  @import "utils/variables";
+  @import "utils/mixins";
+  @import "utils/base";
+
+  // Components
+  @import "components/main-layout";
+  @import "components/quiz-layout";
+  @import "components/button";
+  @import "components/input-control";
+  @import "components/explanation-answer";
+
+  // Pages
+  @import "pages/home";
+  @import "pages/finish";
+}

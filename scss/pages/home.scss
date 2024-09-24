@@ -1,0 +1,146 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.chart-block {
+  .chart-block__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 53px;
+  }
+
+  ul {
+    gap: 2px;
+  }
+
+  .chart-block__picture {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    img {
+      width: 110px;
+    }
+
+    .chart-block__percent {
+      display: block;
+      margin-top: 10px;
+      color: $COLOR_PINK;
+      font-family: $ffFuturaPT;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: $bold;
+      line-height: normal;
+
+      > span {
+        font-size: 24px;
+      }
+    }
+  }
+
+  @include media(lg) {
+    .chart-block__wrapper {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .chart-block__info {
+      text-align: center;
+    }
+  }
+
+
+  @include media(sm) {
+    br {
+      display: none;
+    }
+  }
+}
+
+.count-cases {
+  .count-cases__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    text-align: center;
+
+    @include media(xxl) {
+      justify-content: space-around;
+    }
+
+    @include media(md) {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+  }
+
+  .count-case {
+    width: 330px;
+
+    .count-case__number {
+      display: block;
+
+      color: $COLOR_PINK;
+      font-family: $ffFuturaPT;
+      font-size: 40px;
+      font-style: normal;
+      font-weight: $bold;
+      line-height: normal;
+    }
+  }
+}
+
+.info-block {
+  .info-block__wrapper {
+    padding: 28px 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    border-radius: 10px;
+    background: $COLOR_LIGHT_PINK;
+  }
+
+  .info-block__icon {
+    width: 60px;
+  }
+
+  .info-block__text {
+    color: $COLOR_WHITE;
+    font-family: $ffFuturaPT;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: $medium;
+    line-height: normal;
+  }
+
+  @include media(sm) {
+    .info-block__wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+}
+
+.quiz-preview {
+  max-width: 100%;
+}
+
+.start-quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .btn {
+    width: 354px;
+  }
+
+  @include media(md) {
+    .btn {
+      width: 100%;
+    }
+  }
+}
