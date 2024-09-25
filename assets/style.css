@@ -241,13 +241,13 @@ html {
   }
 }
 #fenkarol-quiz .main-content {
-  min-width: 745px;
+  width: 745px;
   display: flex;
   flex-direction: column;
 }
 @media screen and (max-width: 1400px) {
   #fenkarol-quiz .main-content {
-    min-width: 100%;
+    width: 100%;
   }
 }
 #fenkarol-quiz .quiz-bnr {

@@ -15,12 +15,12 @@
 }
 
 .main-content {
-  min-width: 745px;
+  width: 745px;
   display: flex;
   flex-direction: column;
 
   @include media(xxl) {
-    min-width: 100%;
+    width: 100%;
   }
 }
 
