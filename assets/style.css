@@ -61,11 +61,21 @@ html {
 #fenkarol-quiz .views.v4 .view.v4 {
   display: block;
 }
+#fenkarol-quiz .views.v4 .view.v4 .monster.monster--molecule {
+  bottom: auto;
+  top: 65px;
+  right: 25px;
+}
 #fenkarol-quiz .views.v5 .view.v4 {
   display: none;
 }
 #fenkarol-quiz .views.v5 .view.v5 {
   display: block;
+}
+#fenkarol-quiz .views.v5 .view.v5 .monster.monster--molecule {
+  bottom: -31px;
+  right: auto;
+  left: -31px;
 }
 #fenkarol-quiz .views.v6 .view.v5 {
   display: none;
@@ -73,11 +83,24 @@ html {
 #fenkarol-quiz .views.v6 .view.v6 {
   display: block;
 }
+#fenkarol-quiz .views.v6 .view.v6 .monster.monster--molecule {
+  bottom: auto;
+  top: 60px;
+  right: 25px;
+}
 #fenkarol-quiz .views.v7 .view.v6 {
   display: none;
 }
 #fenkarol-quiz .views.v7 .view.v7 {
   display: block;
+}
+#fenkarol-quiz .views.v7 .view.v7 .monster.monster--big {
+  bottom: -20px;
+}
+#fenkarol-quiz .views.v7 .view.v7 .monster.monster--molecule {
+  bottom: auto;
+  top: -31px;
+  left: -31px;
 }
 #fenkarol-quiz .views.v8 .view.v7 {
   display: none;
@@ -150,8 +173,18 @@ html {
 #fenkarol-quiz .text-center {
   text-align: center;
 }
+#fenkarol-quiz .monster {
+  position: absolute;
+}
+#fenkarol-quiz .monster.monster--big {
+  width: 121px;
+}
+#fenkarol-quiz .monster.monster--molecule, #fenkarol-quiz .monster.monster--small {
+  width: 62px;
+}
 #fenkarol-quiz .next-page-block {
   width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,10 +199,31 @@ html {
 }
 #fenkarol-quiz .next-page-block .btn {
   width: 411px;
+  position: relative;
+  z-index: 2;
 }
 @media screen and (max-width: 576px) {
   #fenkarol-quiz .next-page-block .btn {
     width: 100%;
+  }
+}
+#fenkarol-quiz .next-page-block .monster.monster--big {
+  width: 45px;
+  left: calc(50% - 175px);
+  top: 17px;
+  animation: showBlueMonsterFromButton 10s ease infinite;
+}
+#fenkarol-quiz .next-page-block .monster.monster--small {
+  right: -62px;
+  z-index: 2;
+  animation: flySmallMonster 10s linear infinite;
+}
+@media screen and (max-width: 576px) {
+  #fenkarol-quiz .next-page-block .monster.monster--big {
+    left: calc(50% - 145px);
+  }
+  #fenkarol-quiz .next-page-block .monster.monster--small {
+    right: -31px;
   }
 }
 #fenkarol-quiz .library {
@@ -228,6 +282,35 @@ html {
 }
 #fenkarol-quiz .pl-16 {
   padding-left: 16px;
+}
+@keyframes showBlueMonsterFromButton {
+  0% {
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes flySmallMonster {
+  0% {
+    transform: translate(-1px, -13px) rotate(0);
+  }
+  50% {
+    transform: translate(-30px, 30px) rotate(180deg);
+  }
+  100% {
+    transform: translate(-1px, -13px) rotate(360deg);
+  }
 }
 #fenkarol-quiz .main-layout .main-layout__wrapper {
   display: flex;
@@ -343,7 +426,7 @@ html {
   border: none;
 }
 #fenkarol-quiz .btn[disabled] {
-  opacity: 0.5;
+  background: #7FC9C5;
 }
 #fenkarol-quiz .btn[disabled]:hover {
   cursor: initial;
@@ -422,30 +505,153 @@ html {
   display: none;
   width: 100%;
   text-align: left;
+  position: relative;
 }
 #fenkarol-quiz .explanation-answer .explanation-answer__wrapper {
   margin: 42px 0 30px 0;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  background: #C26098;
+  border-radius: 10px;
+}
+#fenkarol-quiz .explanation-answer .explanation-answer__right-answer {
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #FFFFFF;
+  text-align: center;
 }
 #fenkarol-quiz .explanation-answer .explanation-answer__result {
+  margin-top: 26px;
   font-family: "FuturaPT", "Arial", "Helvetica Neue", sans-serif;
   font-size: 29px;
   font-style: normal;
   font-weight: 450;
   line-height: 29px;
-}
-#fenkarol-quiz .explanation-answer .explanation-answer__right-answer {
-  margin-top: 8px;
+  color: #FFFFFF;
 }
 #fenkarol-quiz .explanation-answer .explanation-answer__instruction {
-  margin-top: 5px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 5px;
+  color: rgba(255, 255, 255, 0.9);
+}
+#fenkarol-quiz .explanation-answer .monster.monster--big {
+  bottom: 0;
+  left: 30px;
+  z-index: 1;
+  transform: rotate(180deg);
+  animation: translateMonsterFromBottom 10s ease infinite;
+}
+#fenkarol-quiz .explanation-answer .monster.monster--big.pos-bottom-right {
+  left: auto;
+  right: 30px;
+}
+#fenkarol-quiz .explanation-answer .monster.monster--big.pos-right {
+  bottom: 0;
+  left: auto;
+  right: 0;
+  transform: rotate(90deg);
+  animation: translateMonsterFromRight 10s ease infinite;
+}
+#fenkarol-quiz .explanation-answer .monster.monster--molecule {
+  bottom: -28px;
+  right: 15px;
+  z-index: 3;
+  animation: flyMonsterInMolecule 5s linear infinite;
 }
 #fenkarol-quiz .explanation-answer.visible {
   display: block;
+}
+@media screen and (max-width: 1400px) {
+  #fenkarol-quiz .explanation-answer .explanation-answer__instruction br {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  #fenkarol-quiz .explanation-answer .monster.monster--big {
+    width: 100px;
+    animation: translateMonsterFromBottomMobile 10s ease infinite;
+  }
+  #fenkarol-quiz .explanation-answer .monster.monster--big.pos-right {
+    display: none;
+  }
+}
+@keyframes translateMonsterFromBottom {
+  0% {
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translateY(0) rotate(180deg);
+  }
+  50% {
+    transform: translateY(84px) rotate(180deg);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translateY(84px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(180deg);
+  }
+}
+@keyframes translateMonsterFromBottomMobile {
+  0% {
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translateY(0) rotate(180deg);
+  }
+  50% {
+    transform: translateY(70px) rotate(180deg);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translateY(70px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(180deg);
+  }
+}
+@keyframes translateMonsterFromRight {
+  0% {
+    transform: translate(0, -50%) rotate(90deg);
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translate(0, -50%) rotate(90deg);
+  }
+  50% {
+    transform: translate(94px, -50%) rotate(90deg);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translate(94px, -50%) rotate(90deg);
+  }
+  100% {
+    transform: translate(0, -50%) rotate(90deg);
+  }
+}
+@keyframes flyMonsterInMolecule {
+  0% {
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
+  33% {
+    transform: translate(5px, 10px) rotate(-15deg) scale(0.9);
+  }
+  66% {
+    transform: translate(10px, 0) rotate(15deg) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
 }
 #fenkarol-quiz .chart-block .chart-block__wrapper {
   display: flex;
@@ -550,6 +756,7 @@ html {
   max-width: 100%;
 }
 #fenkarol-quiz .start-quiz {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -557,9 +764,25 @@ html {
 #fenkarol-quiz .start-quiz .btn {
   width: 354px;
 }
+#fenkarol-quiz .start-quiz .monster.monster--small {
+  right: 30px;
+  animation: rotateMonster 15s linear infinite;
+}
 @media screen and (max-width: 768px) {
   #fenkarol-quiz .start-quiz .btn {
     width: 100%;
+  }
+  #fenkarol-quiz .start-quiz .monster.monster--small {
+    bottom: 31px;
+    right: 15px;
+  }
+}
+@keyframes rotateMonster {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 #fenkarol-quiz .finish-preview {

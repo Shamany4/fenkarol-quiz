@@ -130,17 +130,44 @@
 }
 
 .start-quiz {
+  position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
+
   .btn {
     width: 354px;
+  }
+
+  .monster {
+    &.monster--small {
+      right: 30px;
+
+      animation: rotateMonster 15s linear infinite;
+    }
   }
 
   @include media(md) {
     .btn {
       width: 100%;
     }
+
+    .monster {
+      &.monster--small {
+        bottom: 31px;
+        right: 15px;
+      }
+    }
+  }
+}
+
+@keyframes rotateMonster {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

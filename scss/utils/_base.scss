@@ -46,6 +46,14 @@
 
       &.v4 {
         display: block;
+
+        .monster {
+          &.monster--molecule {
+            bottom: auto;
+            top: 65px;
+            right: 25px;
+          }
+        }
       }
     }
   }
@@ -58,6 +66,14 @@
 
       &.v5 {
         display: block;
+
+        .monster {
+          &.monster--molecule {
+            bottom: -31px;
+            right: auto;
+            left: -31px;
+          }
+        }
       }
     }
   }
@@ -70,6 +86,14 @@
 
       &.v6 {
         display: block;
+
+        .monster {
+          &.monster--molecule {
+            bottom: auto;
+            top: 60px;
+            right: 25px;
+          }
+        }
       }
     }
   }
@@ -82,6 +106,18 @@
 
       &.v7 {
         display: block;
+
+        .monster {
+          &.monster--big {
+            bottom: -20px;
+          }
+
+          &.monster--molecule {
+            bottom: auto;
+            top: -31px;
+            left: -31px;
+          }
+        }
       }
     }
   }
@@ -174,8 +210,22 @@ ol {
   text-align: center;
 }
 
+.monster {
+  position: absolute;
+
+  &.monster--big {
+    width: 121px;
+  }
+
+  &.monster--molecule,
+  &.monster--small {
+    width: 62px;
+  }
+}
+
 .next-page-block {
   width: 100%;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -192,11 +242,38 @@ ol {
 
   .btn {
     width: 411px;
+    position: relative;
+    z-index: 2;
   }
 
   @include media(sm) {
     .btn {
       width: 100%;
+    }
+  }
+
+  .monster {
+    &.monster--big {
+      width: 45px;
+      left: calc(50% - 175px);
+      top: 17px;
+      animation: showBlueMonsterFromButton 10s ease infinite;
+    }
+
+    &.monster--small {
+      right: -62px;
+      z-index: 2;
+      animation: flySmallMonster 10s linear infinite;
+    }
+
+    @include media(sm) {
+      &.monster--big {
+        left: calc(50% - 145px);
+      }
+
+      &.monster--small {
+        right: -31px;
+      }
     }
   }
 }
@@ -282,5 +359,36 @@ ol {
 .pl {
   &-16 {
     padding-left: 16px;
+  }
+}
+
+@keyframes showBlueMonsterFromButton {
+  0% {
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes flySmallMonster {
+  0% {
+    transform: translate(-1px, -13px) rotate(0);
+  }
+  50% {
+    transform: translate(-30px, 30px) rotate(180deg);;
+  }
+  100% {
+    transform: translate(-1px, -13px) rotate(360deg);
   }
 }

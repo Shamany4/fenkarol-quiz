@@ -5,34 +5,184 @@
   display: none;
   width: 100%;
   text-align: left;
+  position: relative;
 
   .explanation-answer__wrapper {
     margin: 42px 0 30px 0;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+
     display: flex;
     flex-direction: column;
+
+    background: $COLOR_DARKER_PINK;
+    border-radius: 10px;
+  }
+
+  .explanation-answer__right-answer {
+    width: 100%;
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+    background: $COLOR_WHITE;
+
+    text-align: center;
   }
 
   .explanation-answer__result {
+    margin-top: 26px;
+
     font-family: $ffFuturaPT;
     font-size: 29px;
     font-style: normal;
     font-weight: $medium;
     line-height: 29px;
-  }
-
-  .explanation-answer__right-answer {
-    margin-top: 8px;
+    color: $COLOR_WHITE;
   }
 
   .explanation-answer__instruction {
-    margin-top: 5px;
+    margin-top: 8px;
 
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    color: rgba($COLOR_WHITE, 0.9);
+  }
+
+  .monster {
+    &.monster--big {
+      bottom: 0;
+      left: 30px;
+      z-index: 1;
+      transform: rotate(180deg);
+
+      animation: translateMonsterFromBottom 10s ease infinite;
+
+      &.pos-bottom-right {
+        left: auto;
+        right: 30px;
+      }
+
+      &.pos-right {
+        bottom: 0;
+        left: auto;
+        right: 0;
+        transform: rotate(90deg);
+        animation: translateMonsterFromRight 10s ease infinite;
+      }
+    }
+
+    &.monster--molecule {
+      bottom: -28px;
+      right: 15px;
+      z-index: 3;
+
+      animation: flyMonsterInMolecule 5s linear infinite;
+    }
   }
 
   &.visible {
     display: block;
+  }
+
+  @include media(xxl) {
+    .explanation-answer__instruction {
+      br {
+        display: none;
+      }
+    }
+  }
+
+  @include media(sm) {
+    .monster {
+      &.monster--big {
+        width: 100px;
+
+        animation: translateMonsterFromBottomMobile 10s ease infinite;
+
+        &.pos-right {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@keyframes translateMonsterFromBottom {
+  0% {
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translateY(0) rotate(180deg);
+  }
+  50% {
+    transform: translateY(84px) rotate(180deg);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translateY(84px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(180deg);
+  }
+}
+
+@keyframes translateMonsterFromBottomMobile {
+  0% {
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translateY(0) rotate(180deg);
+  }
+  50% {
+    transform: translateY(70px) rotate(180deg);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translateY(70px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(180deg);
+  }
+}
+
+@keyframes translateMonsterFromRight {
+  0% {
+    transform: translate(0, -50%) rotate(90deg);
+    transition-delay: 2s;
+  }
+  25% {
+    transform: translate(0, -50%) rotate(90deg);
+  }
+  50% {
+    transform: translate(94px, -50%) rotate(90deg);
+    transition-delay: 4s;
+  }
+  75% {
+    transform: translate(94px, -50%) rotate(90deg);
+  }
+  100% {
+    transform: translate(0, -50%) rotate(90deg);
+  }
+}
+
+@keyframes flyMonsterInMolecule {
+  0% {
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
+  33% {
+    transform: translate(5px, 10px) rotate(-15deg) scale(0.9);
+  }
+  66% {
+    transform: translate(10px, 0) rotate(15deg) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0) scale(1);
   }
 }
