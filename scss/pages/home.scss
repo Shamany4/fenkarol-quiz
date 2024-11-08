@@ -183,7 +183,9 @@
     &.monster--small {
       right: 30px;
 
-      animation: rotateMonster 15s linear infinite;
+      transform: rotate(-45deg);
+
+      animation: rotateMonster 5s ease-in-out infinite;
     }
   }
 
@@ -194,8 +196,8 @@
 
     .monster {
       &.monster--small {
-        bottom: 31px;
-        right: 15px;
+        bottom: 20px;
+        right: 5px;
       }
     }
   }
@@ -203,11 +205,29 @@
 
 @keyframes rotateMonster {
   0% {
-    transform: rotate(0);
+    transform: scale(1) rotate(-45deg);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+
+  25% {
+    transform: scale(0.7) rotate(-75deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: scale(1) rotate(-45deg);
+    animation-timing-function: ease-out;
+  }
+
+  75% {
+    transform: scale(0.7) rotate(-15deg);
+    animation-timing-function: ease-in;
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: scale(1) rotate(-45deg);
+    animation-timing-function: ease-out;
   }
 }
 
@@ -215,16 +235,20 @@
   0% {
     transform: translate(0, 0) rotate(126deg);
   }
+
   25% {
     transform: translate(58px, 52px) rotate(126deg);
   }
+
   50% {
     transform: translate(58px, 52px) rotate(126deg);
     transition-delay: 3s;
   }
+
   75% {
     transform: translate(0, 0) rotate(126deg);
   }
+
   100% {
     transform: translate(0, 0) rotate(126deg);
   }
@@ -234,16 +258,20 @@
   0% {
     transform: translate(0, 0) rotate(-53deg);
   }
+
   25% {
     transform: translate(-65px, -66px) rotate(-53deg);
   }
+
   50% {
     transform: translate(-65px, -66px) rotate(-53deg);
     transition-delay: 3s;
   }
+
   75% {
     transform: translate(0, 0) rotate(-53deg);
   }
+
   100% {
     transform: translate(0, 0) rotate(-53deg);
   }
