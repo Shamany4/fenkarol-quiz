@@ -2,10 +2,19 @@
 @import "../utils/mixins";
 
 .chart-block {
+  position: relative;
+  overflow: hidden;
+
   .chart-block__wrapper {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+
     display: flex;
     align-items: center;
     gap: 53px;
+
+    background: $COLOR_LIGHTER_PINK;
   }
 
   ul {
@@ -31,9 +40,32 @@
       font-weight: $bold;
       line-height: normal;
 
-      > span {
+      >span {
         font-size: 24px;
       }
+    }
+  }
+
+  .monster {
+    &.monster--molecule {
+      width: 85.5px;
+      top: -80px;
+      left: -90px;
+      z-index: 3;
+      transform: rotate(126deg);
+
+      animation: flyBlueMonster1 10s ease-in-out infinite;
+    }
+
+    &.monster--crazy-molecule {
+      width: 90px;
+      bottom: -85px;
+      right: -86px;
+      z-index: 3;
+      rotate: rotate(126deg);
+
+      animation: flyBlueMonster2 8s ease-in-out infinite;
+      animation-delay: 1s;
     }
   }
 
@@ -52,6 +84,12 @@
   @include media(sm) {
     br {
       display: none;
+    }
+
+    .monster {
+      &.monster--crazy-molecule {
+        width: 70px;
+      }
     }
   }
 }
@@ -167,7 +205,46 @@
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes flyBlueMonster1 {
+  0% {
+    transform: translate(0, 0) rotate(126deg);
+  }
+  25% {
+    transform: translate(58px, 52px) rotate(126deg);
+  }
+  50% {
+    transform: translate(58px, 52px) rotate(126deg);
+    transition-delay: 3s;
+  }
+  75% {
+    transform: translate(0, 0) rotate(126deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(126deg);
+  }
+}
+
+@keyframes flyBlueMonster2 {
+  0% {
+    transform: translate(0, 0) rotate(-53deg);
+  }
+  25% {
+    transform: translate(-65px, -66px) rotate(-53deg);
+  }
+  50% {
+    transform: translate(-65px, -66px) rotate(-53deg);
+    transition-delay: 3s;
+  }
+  75% {
+    transform: translate(0, 0) rotate(-53deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-53deg);
   }
 }

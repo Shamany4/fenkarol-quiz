@@ -216,7 +216,7 @@ html {
 #fenkarol-quiz .next-page-block .monster.monster--small {
   right: -62px;
   z-index: 2;
-  animation: flySmallMonster 10s linear infinite;
+  animation: flySmallMonster 8s linear infinite;
 }
 @media screen and (max-width: 576px) {
   #fenkarol-quiz .next-page-block .monster.monster--big {
@@ -294,22 +294,26 @@ html {
     transform: translateY(-30px);
     transition-delay: 4s;
   }
+  51% {
+    transform: translateY(-30px) scale(-1, 1);
+    transition-delay: 1s;
+  }
   75% {
-    transform: translateY(-30px);
+    transform: translateY(-30px) scale(-1, 1);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(-1, 1);
   }
 }
 @keyframes flySmallMonster {
   0% {
-    transform: translate(-1px, -13px) rotate(0);
+    transform: translate(0, 0) scale(-1, 1) rotate(0);
   }
   50% {
-    transform: translate(-30px, 30px) rotate(180deg);
+    transform: translate(-5px, 15px) scale(-1, 1) rotate(-15deg);
   }
   100% {
-    transform: translate(-1px, -13px) rotate(360deg);
+    transform: translate(0, 0) scale(-1, 1) rotate(0);
   }
 }
 #fenkarol-quiz .main-layout .main-layout__wrapper {
@@ -653,10 +657,18 @@ html {
     transform: translate(0, 0) rotate(0) scale(1);
   }
 }
+#fenkarol-quiz .chart-block {
+  position: relative;
+  overflow: hidden;
+}
 #fenkarol-quiz .chart-block .chart-block__wrapper {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 53px;
+  background: #FBF3F7;
 }
 #fenkarol-quiz .chart-block ul {
   gap: 2px;
@@ -682,6 +694,23 @@ html {
 #fenkarol-quiz .chart-block .chart-block__picture .chart-block__percent > span {
   font-size: 24px;
 }
+#fenkarol-quiz .chart-block .monster.monster--molecule {
+  width: 85.5px;
+  top: -80px;
+  left: -90px;
+  z-index: 3;
+  transform: rotate(126deg);
+  animation: flyBlueMonster1 10s ease-in-out infinite;
+}
+#fenkarol-quiz .chart-block .monster.monster--crazy-molecule {
+  width: 90px;
+  bottom: -85px;
+  right: -86px;
+  z-index: 3;
+  rotate: rotate(126deg);
+  animation: flyBlueMonster2 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
 @media screen and (max-width: 992px) {
   #fenkarol-quiz .chart-block .chart-block__wrapper {
     flex-direction: column;
@@ -694,6 +723,9 @@ html {
 @media screen and (max-width: 576px) {
   #fenkarol-quiz .chart-block br {
     display: none;
+  }
+  #fenkarol-quiz .chart-block .monster.monster--crazy-molecule {
+    width: 70px;
   }
 }
 #fenkarol-quiz .count-cases .count-cases__wrapper {
@@ -783,6 +815,42 @@ html {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes flyBlueMonster1 {
+  0% {
+    transform: translate(0, 0) rotate(126deg);
+  }
+  25% {
+    transform: translate(58px, 52px) rotate(126deg);
+  }
+  50% {
+    transform: translate(58px, 52px) rotate(126deg);
+    transition-delay: 3s;
+  }
+  75% {
+    transform: translate(0, 0) rotate(126deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(126deg);
+  }
+}
+@keyframes flyBlueMonster2 {
+  0% {
+    transform: translate(0, 0) rotate(-53deg);
+  }
+  25% {
+    transform: translate(-65px, -66px) rotate(-53deg);
+  }
+  50% {
+    transform: translate(-65px, -66px) rotate(-53deg);
+    transition-delay: 3s;
+  }
+  75% {
+    transform: translate(0, 0) rotate(-53deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(-53deg);
   }
 }
 #fenkarol-quiz .finish-preview {
