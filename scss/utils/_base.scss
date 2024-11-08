@@ -263,7 +263,7 @@ ol {
     &.monster--small {
       right: -62px;
       z-index: 2;
-      animation: flySmallMonster 8s linear infinite;
+      animation: puff-in-tl 1.5s ease-in-out both, flySmallMonster 8s linear infinite;
     }
 
     @include media(sm) {
@@ -392,14 +392,36 @@ ol {
 
 @keyframes flySmallMonster {
   0% {
-    transform: translate(0,0) scale(-1, 1) rotate(0);
+    transform: translate(0, 0) scale(-1, 1) rotate(0);
   }
 
   50% {
-    transform: translate(-5px,15px) scale(-1, 1) rotate(-15deg);
+    transform: translate(-5px, 15px) scale(-1, 1) rotate(-15deg);
   }
 
   100% {
-    transform: translate(0,0) scale(-1, 1) rotate(0);
+    transform: translate(0, 0) scale(-1, 1) rotate(0);
+  }
+}
+
+@keyframes puff-in-tl {
+  0% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
   }
 }
